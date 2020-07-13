@@ -9,7 +9,7 @@
     "node": ">=v12"
   },
   "scripts": {
-    "postinstall": "cd server && npm i",
+    "setup": "cd server && npm i",
     "build": "tsc --build server/tsconfig.json",
     "dev": "npm run build -- --watch",
     "test": "echo 'Test script was run!'",
