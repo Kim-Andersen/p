@@ -1,0 +1,24 @@
+{
+  "name": "p",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "Kim Andersen",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc --build server/tsconfig.json",
+    "dev": "npm run build -- --watch",
+    "eslint": "eslint --ext ts,tsx,json {server,shared}/src/",
+    "prettier:check": "prettier --check \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
+    "prettier:write": "prettier --write \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "prettier": "2.0.5",
+    "typescript": "3.9.6"
+  }
+}
