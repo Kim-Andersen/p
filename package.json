@@ -5,9 +5,14 @@
   "keywords": [],
   "author": "Kim Andersen",
   "license": "ISC",
+  "engines": {
+    "node": ">=v12"
+  },
   "scripts": {
+    "postinstall": "cd server && npm i",
     "build": "tsc --build server/tsconfig.json",
     "dev": "npm run build -- --watch",
+    "test": "echo 'Test script was run!'",
     "eslint": "eslint --ext ts,tsx,json {server,shared}/src/",
     "prettier:check": "prettier --check \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
     "prettier:write": "prettier --write \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\""
