@@ -10,8 +10,7 @@
   },
   "scripts": {
     "setup": "cd server && npm i",
-    "build": "tsc --build server/tsconfig.json",
-    "dev": "npm run build -- --watch",
+    "build": "cd server && npm run build",
     "test": "echo 'Test script was run!'",
     "eslint": "eslint --ext ts,tsx,json {server,shared}/src/",
     "prettier:check": "prettier --check \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",

@@ -1,17 +1,14 @@
 {
   "extends": "../.config/tsconfig.json",
   "compilerOptions": {
-    "incremental": true,
-    "baseUrl": "src",
-    "rootDir": "./src",
-    "sourceMap": true,
-    "outDir": "build",
-    "target": "es6",
-    "paths": {
-      "@shared": ["../../shared/build"]
-    }
+    "target": "es2017", // Enables native async/await.
+    "outDir": "./build",
+    "sourceMap": true
+    // "paths": {
+    //   "@shared": ["../../shared/build"]
+    // }
   },
-  "references": [{ "path": "../shared/tsconfig.json" }],
-  "include": ["./**/*.ts"],
-  "exclude": ["./**/*.spec.ts", "./build/**/*", "./node_modules/**/*"]
+  // "references": [{ "path": "../shared/tsconfig.json" }],
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.spec.ts", "build", "node_modules"]
 }

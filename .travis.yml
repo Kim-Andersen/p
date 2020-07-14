@@ -1,14 +1,30 @@
 language: node_js
 node_js:
   - 12
+
 before_script:
   - npm run setup
   - npm run build
+
+env:
+  global:
+    # Name of the zip file containing the server which will be deployed to Elastic Beanstalk.
+    - SERVER_ZIP_FILE=server-$TRAVIS_TAG.zip
+
+before_deploy:
+  # Create a zip file containing the following folder and files from the ./server directory:
+  # - build
+  # - package.json
+  # - package-lock.json
+  - cd server && zip -r $SERVER_ZIP_FILE build package.json package-lock.json
+
 deploy:
   provider: elasticbeanstalk
-  access_key_id: ACCESSKEYID
-  secret_access_key: SECRETACCESSKEYID
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY_ID}
   region: 'eu-central-1'
   app: 'p'
   env: 'P-env'
-  bucket_name: 'elasticbeanstalk-eu-central-1-564167133035'
+  bucket_name: ${AWS_S3_BUCKET}
+  zip_file: $SERVER_ZIP_FILE
+  skip_cleanup: true
