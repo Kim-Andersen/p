@@ -6,10 +6,8 @@ before_script:
   - npm run build
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: ACCESSKEYID
-  secret_access_key:
-    secure: SECRETACCESSKEYID
+  access_key_id: ACCESSKEYID
+  secret_access_key: SECRETACCESSKEYID
   region: 'eu-central-1'
   app: 'p'
   env: 'P-env'
