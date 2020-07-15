@@ -4,6 +4,8 @@ node_js:
 
 before_script:
   - npm run setup
+  - npm run eslint
+  - npm run prettier:check
   - npm run build
 
 env:
