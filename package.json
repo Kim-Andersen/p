@@ -12,6 +12,7 @@
     "setup": "cd server && npm ci",
     "build": "cd server && npm run build",
     "test": "echo 'Test script was run!'",
+    "lint": "npm run eslint && npm run prettier:check",
     "eslint": "eslint --ext ts,json \"{server,shared}/src/**/*.{ts,json}\"",
     "prettier:check": "prettier --check \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
     "prettier:write": "prettier --write \"{server,shared}/src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\""
