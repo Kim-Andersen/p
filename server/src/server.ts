@@ -33,16 +33,6 @@ async function startServer() {
     process.exit(1);
   }
 
-  // Sync all database models.
-  console.log('Syncing database models...');
-  try {
-    await database.sequelize.sync();
-  } catch (error) {
-    console.error('Failed to sync database models:');
-    console.error(error);
-    process.exit(1);
-  }
-
   // All good, ready to listen to incoming requests.
-  mainApp.listen(PORT, () => console.log('Server started.'));
+  mainApp.listen(PORT, () => console.log(`Server started, listening on port ${PORT}.`));
 }

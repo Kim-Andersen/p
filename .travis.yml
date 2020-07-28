@@ -18,7 +18,7 @@ before_deploy:
   # - build
   # - package.json
   # - package-lock.json
-  - cd server && zip -r $SERVER_ZIP_FILE build package.json package-lock.json
+  - cd server && zip -r $SERVER_ZIP_FILE build database package.json package-lock.json .sequelizerc
 
 deploy:
   provider: elasticbeanstalk

@@ -1,9 +1,10 @@
 {
   "extends": "../.config/tsconfig.json",
   "compilerOptions": {
-    "target": "es2017", // Enables native async/await.
+    "target": "ES2017", // Enables native async/await.
     "outDir": "./build",
-    "sourceMap": true
+    "sourceMap": true,
+    "allowJs": true // Allow sequelize .js files.
     // "paths": {
     //   "@shared": ["../../shared/build"]
     // }

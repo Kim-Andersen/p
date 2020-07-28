@@ -1,21 +1,17 @@
-import { Options } from 'sequelize';
-
-export interface ICustomDatabaseOptions extends Options {
-  url?: string;
-}
-
-const dialect = 'postgres';
-const config: { [environment: string]: ICustomDatabaseOptions } = {
+/**
+ * The "module.exports" format is required for sequelize-cli to function.
+ */
+module.exports = {
   development: {
     url: 'postgresql://127.0.0.1:5432/p_development',
-    dialect
+    dialect: 'postgres'
   },
   test: {
     url: 'postgresql://127.0.0.1:5432/p_test',
-    dialect
+    dialect: 'postgres'
   },
   production: {
-    dialect,
+    dialect: 'postgres',
     username: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
     host: process.env.RDS_HOSTNAME,
@@ -23,5 +19,3 @@ const config: { [environment: string]: ICustomDatabaseOptions } = {
     database: process.env.RDS_DB_NAME
   }
 };
-
-export default config;

@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "license": "ISC",
   "scripts": {
+    "prestart": "npm run db:migrate && npm run db:seed:all",
     "start": "node build/server.js",
-    "dev": "concurrently \"npm run build:watch\" \"npm run serve:watch\"",
+    "dev": "NODE_ENV=development concurrently \"npm run build:watch\" \"npm run serve:watch\"",
     "serve:watch": "nodemon build/server.js",
     "build": "tsc --build",
     "build:watch": "npm run build -- --watch --incremental",
     "test": "jest --config ../.config/jest.config.json",
-    "test:coverage": "npm run test -- --coverage"
+    "test:coverage": "npm run test -- --coverage",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:migrate": "sequelize-cli db:migrate --config build/config/database.js",
+    "db:seed:all": "sequelize-cli db:seed:all --config build/config/database.js"
   },
   "devDependencies": {
     "@types/jest": "26.0.4",
@@ -27,13 +31,13 @@
     "jest": "26.1.0",
     "jest-junit": "11.0.1",
     "nodemon": "2.0.4",
-    "sequelize-cli": "6.2.0",
     "ts-jest": "26.1.2",
     "ts-node": "8.10.2",
     "tsconfig-paths": "3.9.0",
     "typescript": "3.9.6"
   },
   "dependencies": {
+    "fakerator": "0.3.1",
     "koa": "2.13.0",
     "koa-bodyparser": "4.3.0",
     "koa-json": "2.0.2",
@@ -42,6 +46,7 @@
     "koa-router": "9.1.0",
     "pg": "8.3.0",
     "pg-hstore": "2.3.3",
-    "sequelize": "6.3.3"
+    "sequelize": "6.3.3",
+    "sequelize-cli": "6.2.0"
   }
 }
